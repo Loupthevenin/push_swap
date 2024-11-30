@@ -6,7 +6,7 @@
 #    By: ltheveni <ltheveni@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/29 10:04:27 by ltheveni          #+#    #+#              #
-#    Updated: 2024/11/29 10:43:40 by ltheveni         ###   ########.fr        #
+#    Updated: 2024/11/30 10:39:27 by ltheveni         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,8 +36,8 @@ LIBFLAGS = -L $(LIB_DIR) -lft
 RM = rm -rf
 
 # C program
-SRCS = $(shell find $(SRC_DIR) -name '*.c' | xargs basename -a)
-OBJS = $(addprefix $(OBJ_DIR), $(SRCS:.c=.o))
+SRCS = $(shell find $(SRC_DIR) -name '*.c')
+OBJS = $(patsubst $(SRC_DIR)%.c, $(OBJ_DIR)%.o, $(SRCS))
 
 # Recipe
 all: $(LIBFT) $(NAME)
@@ -52,7 +52,7 @@ $(LIBFT):
 	@make -C $(LIB_DIR)
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c
-	@if [ ! -d $(OBJ_DIR) ];then mkdir $(OBJ_DIR); fi
+	@mkdir -p $(@D)
 	@$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
 	@printf "$(_GREEN)█$(_END)"
 
