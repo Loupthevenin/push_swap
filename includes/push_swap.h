@@ -6,7 +6,7 @@
 /*   By: ltheveni <ltheveni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 11:48:59 by ltheveni          #+#    #+#             */
-/*   Updated: 2024/12/02 10:39:24 by ltheveni         ###   ########.fr       */
+/*   Updated: 2024/12/03 13:44:25 by ltheveni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,47 @@
 # include "ft_printf.h"
 # include "libft.h"
 
-int		rule_swap(int *tab, int size_tab);
-int		rule_ss(int *tab_a, int *tab_b, int size_tab_a, int size_tab_b);
-int		rule_push(int *move, int *push, int *size_move, int *size_push);
-int		rule_rotate(int *tab, int size_tab);
-int		rule_rr(int *tab_a, int *tab_b, int size_tab_a, int size_tab_b);
-int		rule_reverse_rotate(int *tab, int size_tab);
-int		rule_rrr(int *tab_a, int *tab_b, int size_tab_a, int size_tab_b);
+int					rule_swap_a(int *tab_a, int size_tab_a, int is_print);
+int					rule_swap_b(int *tab_b, int size_tab_b, int is_print);
+int					rule_ss(int *tab_a, int *tab_b, int size_tab_a,
+						int size_tab_b);
+int					rule_push_a(int *move_b, int *push_a, int *size_move_b,
+						int *size_push_a);
+int					rule_push_b(int *move_a, int *push_b, int *size_move_a,
+						int *size_push_b);
+int					rule_rotate_a(int *tab_a, int size_tab_a, int is_print);
+int					rule_rotate_b(int *tab_b, int size_tab_b, int is_print);
+int					rule_rr(int *tab_a, int *tab_b, int size_tab_a,
+						int size_tab_b);
+int					rule_reverse_rotate_a(int *tab_a, int size_tab_a,
+						int is_print);
+int					rule_reverse_rotate_b(int *tab_b, int size_tab_b,
+						int is_print);
+int					rule_rrr(int *tab_a, int *tab_b, int size_tab_a,
+						int size_tab_b);
 
-int		check_duplicate(int *tab, int size);
-long	ft_atoi_long(char *s);
-void	sort_tab(int *tab_a, int size);
+typedef struct s_node
+{
+	int				value;
+	int				index;
+	struct s_node	*next;
+}					t_node;
+
+typedef struct
+{
+	int				index_a;
+	int				index_b;
+	int				cost_a;
+	int				cost_b;
+	int				total_cost;
+}					MoveCost;
+
+int					check_duplicate(int *tab, int size);
+long				ft_atoi_long(char *s);
+t_node				*tab_to_list(int *tab, int size);
+void				free_list(t_node *head);
+void				cost_analysis(int *tab_a, int *tab_b, int size_a,
+						int size_b);
+void				sort_tab(int *tab_a, int size);
 
 #endif
