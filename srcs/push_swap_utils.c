@@ -6,7 +6,7 @@
 /*   By: ltheveni <ltheveni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 19:59:23 by ltheveni          #+#    #+#             */
-/*   Updated: 2024/12/02 10:52:21 by ltheveni         ###   ########.fr       */
+/*   Updated: 2024/12/03 14:44:21 by ltheveni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,4 +59,46 @@ long	ft_atoi_long(char *s)
 		i++;
 	}
 	return (result * sign);
+}
+
+int	ft_max(int *tab, int size)
+{
+	int	i;
+	int	j;
+	int	max_value;
+
+	i = 0;
+	j = 0;
+	max_value = tab[0];
+	while (i < size)
+	{
+		if (max_value < tab[i])
+		{
+			max_value = tab[i];
+			j = i;
+		}
+		i++;
+	}
+	return (j);
+}
+
+int	ft_min(int *tab, int size)
+{
+	int	i;
+	int	j;
+	int	min_value;
+
+	i = 0;
+	j = 0;
+	min_value = tab[0];
+	while (i < size)
+	{
+		if (min_value > tab[i])
+		{
+			min_value = tab[i];
+			j = i;
+		}
+		i++;
+	}
+	return (j);
 }

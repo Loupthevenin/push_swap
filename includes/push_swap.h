@@ -6,7 +6,7 @@
 /*   By: ltheveni <ltheveni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 11:48:59 by ltheveni          #+#    #+#             */
-/*   Updated: 2024/12/03 13:44:25 by ltheveni         ###   ########.fr       */
+/*   Updated: 2024/12/03 14:44:42 by ltheveni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,8 @@ typedef struct
 
 int					check_duplicate(int *tab, int size);
 long				ft_atoi_long(char *s);
+int					ft_max(int *tab, int size);
+int					ft_min(int *tab, int size);
 t_node				*tab_to_list(int *tab, int size);
 void				free_list(t_node *head);
 void				cost_analysis(int *tab_a, int *tab_b, int size_a,

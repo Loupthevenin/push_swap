@@ -6,7 +6,7 @@
 /*   By: ltheveni <ltheveni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 11:48:44 by ltheveni          #+#    #+#             */
-/*   Updated: 2024/12/03 13:49:54 by ltheveni         ###   ########.fr       */
+/*   Updated: 2024/12/03 16:04:49 by ltheveni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,14 @@
 void	print_tab(int *tab_a, int *tab_b, int size_tab_a, int size_tab_b)
 {
 	int	i;
+	int	size;
 
 	i = 0;
-	while (size_tab_a - 1 >= i)
+	if (size_tab_a < size_tab_b)
+		size = size_tab_b;
+	else
+		size = size_tab_a;
+	while (size - 1 >= i)
 	{
 		ft_printf("%d\t", tab_a[i]);
 		if (i <= size_tab_b - 1)
@@ -94,6 +99,13 @@ void	sort_tab(int *tab_a, int size)
 		sort_size_3a(tab_a);
 	else
 		turk_sort(tab_a, tab_b, &size_a, &size_b);
-	print_tab(tab_a, tab_b, size_a, size_b);
+	/* print_tab(tab_a, tab_b, size_a, size_b); */
+	ft_printf("a: %d\n", tab_a[0]);
+	ft_printf("a: %d\n", tab_a[1]);
+	ft_printf("a: %d\n", tab_a[2]);
+	ft_printf("b: %d\n", tab_b[0]);
+	ft_printf("b: %d\n", tab_b[1]);
+	ft_printf("b: %d\n", tab_b[2]);
+	ft_printf("b: %d\n", tab_b[3]);
 	free(tab_b);
 }
