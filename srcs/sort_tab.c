@@ -6,7 +6,7 @@
 /*   By: ltheveni <ltheveni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 11:48:44 by ltheveni          #+#    #+#             */
-/*   Updated: 2024/12/02 20:04:11 by ltheveni         ###   ########.fr       */
+/*   Updated: 2024/12/03 13:49:54 by ltheveni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,82 +29,49 @@ void	print_tab(int *tab_a, int *tab_b, int size_tab_a, int size_tab_b)
 	ft_printf("a\tb\n");
 }
 
-void	sort_size_3(int *tab, char c)
+void	sort_size_3a(int *tab_a)
 {
 	int	i;
 	int	j;
 	int	max;
 
 	i = 0;
-	max = tab[0];
+	max = tab_a[0];
 	j = 0;
 	while (i < 3)
 	{
-		if (max < tab[i])
+		if (max < tab_a[i])
 		{
-			max = tab[i];
+			max = tab_a[i];
 			j = i;
 		}
 		i++;
 	}
 	if (j == 0)
-	{
-		ft_printf("r%c\n", c);
-		rule_rotate(tab, 3);
-	}
+		rule_rotate_a(tab_a, 3, 1);
 	else if (j == 1)
-	{
-		ft_printf("rr%c\n", c);
-		rule_reverse_rotate(tab, 3);
-	}
-	if (tab[0] > tab[1])
-	{
-		ft_printf("s%c\n", c);
-		rule_swap(tab, 3);
-	}
-}
-
-void	cost_analysis(int *tab_a, int *tab_b, int size_a, int size_b)
-{
-	int	*cost;
-	int	i;
-
-	i = 0;
-	cost = (int *)malloc(sizeof(int) * size_a);
-	if (!cost)
-		return ;
-	while (size_a > i)
-	{
-		i++;
-	}
-	free(cost);
+		rule_reverse_rotate_a(tab_a, 3, 1);
+	if (tab_a[0] > tab_a[1])
+		rule_swap_a(tab_a, 3, 1);
 }
 
 void	turk_sort(int *tab_a, int *tab_b, int *size_a, int *size_b)
 {
 	int	i;
-	int	size;
-	int	count_rotate;
 
 	i = 0;
-	size = *size_a;
-	count_rotate = 0;
 	while (*size_a != 3)
 	{
 		if (i < 2)
-		{
-			rule_push(tab_a, tab_b, size_a, size_b);
-			ft_printf("pb\n");
-		}
+			rule_push_b(tab_a, tab_b, size_a, size_b);
 		else
 		{
 			cost_analysis(tab_a, tab_b, *size_a, *size_b);
-			rule_push(tab_a, tab_b, size_a, size_b);
-			ft_printf("pb\n");
+			rule_push_b(tab_a, tab_b, size_a, size_b);
 		}
 		i++;
 	}
-	sort_size_3(tab_a, 'a');
+	sort_size_3a(tab_a);
 }
 
 void	sort_tab(int *tab_a, int size)
@@ -121,14 +88,12 @@ void	sort_tab(int *tab_a, int size)
 	if (size == 2)
 	{
 		if (tab_a[0] > tab_a[1])
-		{
-			rule_swap(tab_a, size_a);
-			ft_printf("sa\n");
-		}
+			rule_swap_a(tab_a, size_a, 1);
 	}
 	else if (size == 3)
-		sort_size_3(tab_a, 'a');
+		sort_size_3a(tab_a);
 	else
 		turk_sort(tab_a, tab_b, &size_a, &size_b);
 	print_tab(tab_a, tab_b, size_a, size_b);
+	free(tab_b);
 }
