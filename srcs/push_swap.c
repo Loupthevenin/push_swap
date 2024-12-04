@@ -6,7 +6,7 @@
 /*   By: ltheveni <ltheveni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 11:48:18 by ltheveni          #+#    #+#             */
-/*   Updated: 2024/12/02 20:13:02 by ltheveni         ###   ########.fr       */
+/*   Updated: 2024/12/04 18:58:50 by ltheveni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,12 @@ int	is_nbr(char *s)
 	i = 0;
 	while (s[i])
 	{
-		while (s[i] && (s[i] == ' '))
+		while (s[i] && (s[i] == ' ' || s[i] == '\n' || s[i] == '\t'))
 			i++;
 		n = ft_atoi_long(&s[i]);
 		if (n > 2147483647 || n < -2147483648)
 			return (0);
-		while (s[i] && s[i] != ' ')
+		while (s[i] && s[i] != ' ' && s[i] != '\n' && s[i] != '\t')
 		{
 			if (!ft_isdigit(s[i]) && s[i] != '-' && s[i] != '+' && s[i] != ' ')
 				return (0);
@@ -44,11 +44,11 @@ int	len_arg(char *s)
 	count = 0;
 	while (s[i])
 	{
-		while (s[i] && (s[i] == ' '))
+		while (s[i] && (s[i] == ' ' || s[i] == '\n' || s[i] == '\t'))
 			i++;
 		if (s[i])
 			count++;
-		while (s[i] && s[i] != ' ')
+		while (s[i] && s[i] != ' ' && s[i] != '\n' && s[i] != '\t')
 			i++;
 	}
 	return (count);
@@ -89,11 +89,13 @@ int	*malloc_tab(int argc, char **argv, int size)
 		j = 0;
 		while (argv[i][j])
 		{
-			while (argv[i][j] && argv[i][j] == ' ')
+			while (argv[i][j] && (argv[i][j] == ' ' || argv[i][j] == '\n'
+					|| argv[i][j] == '\t'))
 				j++;
 			if (argv[i][j])
 				result[k++] = ft_atoi(&argv[i][j]);
-			while (argv[i][j] && argv[i][j] != ' ')
+			while (argv[i][j] && argv[i][j] != ' ' && argv[i][j] != '\n'
+				&& argv[i][j] != '\t')
 				j++;
 		}
 		i++;
