@@ -6,7 +6,7 @@
 /*   By: ltheveni <ltheveni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 11:48:59 by ltheveni          #+#    #+#             */
-/*   Updated: 2024/12/03 14:44:42 by ltheveni         ###   ########.fr       */
+/*   Updated: 2024/12/04 14:28:01 by ltheveni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,13 @@ int					ft_max(int *tab, int size);
 int					ft_min(int *tab, int size);
 t_node				*tab_to_list(int *tab, int size);
 void				free_list(t_node *head);
-void				cost_analysis(int *tab_a, int *tab_b, int size_a,
+MoveCost			find_min_cost(MoveCost *costs, int size);
+int					count_size_node(t_node *cur);
+void				move_on_top_a(int *tab_a, int size_a, int index);
+void				move_on_top_b(int *tab_b, int size_b, int index);
+void				cost_analysis_phase_1(int *tab_a, int *tab_b, int size_a,
+						int size_b);
+void				cost_analysis_phase_2(int *tab_a, int *tab_b, int size_a,
 						int size_b);
 void				sort_tab(int *tab_a, int size);
 
