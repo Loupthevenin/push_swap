@@ -6,7 +6,7 @@
 /*   By: ltheveni <ltheveni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 11:48:59 by ltheveni          #+#    #+#             */
-/*   Updated: 2024/12/05 10:33:44 by ltheveni         ###   ########.fr       */
+/*   Updated: 2024/12/05 14:05:26 by ltheveni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ typedef struct s_node
 	struct s_node	*next;
 }					t_node;
 
-typedef struct
+typedef struct s_move_cost
 {
 	int				index_a;
 	int				index_b;
@@ -59,6 +59,15 @@ typedef struct
 	int				total_cost;
 }					MoveCost;
 
+typedef struct s_cost_info
+{
+	int				index_a;
+	int				index_b;
+	int				size_a;
+	int				size_b;
+	int				i;
+}					t_cost_info;
+
 int					check_duplicate(int *tab, int size);
 long				ft_atoi_long(char *s);
 int					ft_max(int *tab, int size);
@@ -66,9 +75,13 @@ int					ft_min(int *tab, int size);
 t_node				*tab_to_list(int *tab, int size);
 void				free_list(t_node *head);
 MoveCost			find_min_cost(MoveCost *costs, int size);
+int					find_target(Arrays *tabs, int value,
+						int is_closest_smaller);
 void				move_on_top_a(int *tab_a, int size_a, int index);
 void				move_on_top_b(int *tab_b, int size_b, int index);
 void				cost_analysis(Arrays *tabs, int is_closest_smaller);
+void				calculate_costs(t_node *current_list, Arrays *tabs,
+						MoveCost *costs, int is_closest_smaller);
 void				sort_tab(int *tab_a, int size);
 
 #endif
