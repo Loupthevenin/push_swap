@@ -6,7 +6,7 @@
 /*   By: ltheveni <ltheveni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 13:56:25 by ltheveni          #+#    #+#             */
-/*   Updated: 2024/12/04 14:16:19 by ltheveni         ###   ########.fr       */
+/*   Updated: 2024/12/05 09:08:38 by ltheveni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,19 +26,6 @@ MoveCost	find_min_cost(MoveCost *costs, int size)
 		i++;
 	}
 	return (min_cost);
-}
-
-int	count_size_node(t_node *cur)
-{
-	int	i;
-
-	i = 0;
-	while (cur)
-	{
-		i++;
-		cur = cur->next;
-	}
-	return (i);
 }
 
 void	move_on_top_a(int *tab_a, int size_a, int index)

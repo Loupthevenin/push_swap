@@ -6,7 +6,7 @@
 /*   By: ltheveni <ltheveni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 11:48:59 by ltheveni          #+#    #+#             */
-/*   Updated: 2024/12/04 14:28:01 by ltheveni         ###   ########.fr       */
+/*   Updated: 2024/12/05 10:33:44 by ltheveni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,14 @@ int					rule_reverse_rotate_b(int *tab_b, int size_tab_b,
 int					rule_rrr(int *tab_a, int *tab_b, int size_tab_a,
 						int size_tab_b);
 
+typedef struct s_array
+{
+	int				*tab_a;
+	int				*tab_b;
+	int				*size_a;
+	int				*size_b;
+}					Arrays;
+
 typedef struct s_node
 {
 	int				value;
@@ -58,13 +66,9 @@ int					ft_min(int *tab, int size);
 t_node				*tab_to_list(int *tab, int size);
 void				free_list(t_node *head);
 MoveCost			find_min_cost(MoveCost *costs, int size);
-int					count_size_node(t_node *cur);
 void				move_on_top_a(int *tab_a, int size_a, int index);
 void				move_on_top_b(int *tab_b, int size_b, int index);
-void				cost_analysis_phase_1(int *tab_a, int *tab_b, int size_a,
-						int size_b);
-void				cost_analysis_phase_2(int *tab_a, int *tab_b, int size_a,
-						int size_b);
+void				cost_analysis(Arrays *tabs, int is_closest_smaller);
 void				sort_tab(int *tab_a, int size);
 
 #endif
