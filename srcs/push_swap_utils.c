@@ -6,11 +6,12 @@
 /*   By: ltheveni <ltheveni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 19:59:23 by ltheveni          #+#    #+#             */
-/*   Updated: 2024/12/03 14:44:21 by ltheveni         ###   ########.fr       */
+/*   Updated: 2024/12/05 15:27:53 by ltheveni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+#include <stdio.h>
 
 int	check_duplicate(int *tab, int size)
 {
@@ -59,6 +60,20 @@ long	ft_atoi_long(char *s)
 		i++;
 	}
 	return (result * sign);
+}
+
+int	is_sorted(int *tab, int size)
+{
+	int	i;
+
+	i = 0;
+	while (i < size)
+	{
+		if (tab[i] > tab[i + 1] && i + 1 < size)
+			return (0);
+		i++;
+	}
+	return (1);
 }
 
 int	ft_max(int *tab, int size)

@@ -6,7 +6,7 @@
 /*   By: ltheveni <ltheveni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 11:48:44 by ltheveni          #+#    #+#             */
-/*   Updated: 2024/12/05 10:52:19 by ltheveni         ###   ########.fr       */
+/*   Updated: 2024/12/05 21:20:46 by ltheveni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,8 @@ void	sort_size_3a(int *tab_a)
 
 void	turk_sort(int *tab_a, int *tab_b, int *size_a, int *size_b)
 {
-	int		i;
 	Arrays	arg;
+	int		i;
 
 	i = 0;
 	arg = (Arrays){tab_a, tab_b, size_a, size_b};
@@ -84,7 +84,7 @@ void	turk_sort(int *tab_a, int *tab_b, int *size_a, int *size_b)
 		cost_analysis(&arg, 0);
 		rule_push_a(tab_b, tab_a, size_b, size_a);
 	}
-	move_on_top_a(tab_a, *size_a, ft_min(tab_a, *size_a));
+	move_on_top(&arg, ft_min(tab_a, *size_a), 0);
 }
 
 void	sort_tab(int *tab_a, int size)
@@ -105,7 +105,7 @@ void	sort_tab(int *tab_a, int size)
 	}
 	else if (size == 3)
 		sort_size_3a(tab_a);
-	else
+	else if (size > 3)
 		turk_sort(tab_a, tab_b, &size_a, &size_b);
 	free(tab_b);
 }
