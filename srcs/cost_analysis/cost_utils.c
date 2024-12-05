@@ -6,7 +6,7 @@
 /*   By: ltheveni <ltheveni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 13:56:25 by ltheveni          #+#    #+#             */
-/*   Updated: 2024/12/05 11:01:28 by ltheveni         ###   ########.fr       */
+/*   Updated: 2024/12/05 21:38:46 by ltheveni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,54 +26,4 @@ MoveCost	find_min_cost(MoveCost *costs, int size)
 		i++;
 	}
 	return (min_cost);
-}
-
-void	move_on_top_a(int *tab_a, int size_a, int index)
-{
-	int	i;
-
-	i = 0;
-	if (index < 0 || index >= size_a)
-		return ;
-	if (size_a / 2 >= index)
-	{
-		while (i < index)
-		{
-			rule_rotate_a(tab_a, size_a, 1);
-			i++;
-		}
-	}
-	else
-	{
-		while (i < size_a - index)
-		{
-			rule_reverse_rotate_a(tab_a, size_a, 1);
-			i++;
-		}
-	}
-}
-
-void	move_on_top_b(int *tab_b, int size_b, int index)
-{
-	int	i;
-
-	i = 0;
-	if (index < 0 || index >= size_b)
-		return ;
-	if (size_b / 2 >= index)
-	{
-		while (i < index)
-		{
-			rule_rotate_b(tab_b, size_b, 1);
-			i++;
-		}
-	}
-	else
-	{
-		while (i < size_b - index)
-		{
-			rule_reverse_rotate_b(tab_b, size_b, 1);
-			i++;
-		}
-	}
 }

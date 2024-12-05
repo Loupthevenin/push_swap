@@ -6,7 +6,7 @@
 /*   By: ltheveni <ltheveni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 11:48:18 by ltheveni          #+#    #+#             */
-/*   Updated: 2024/12/04 18:58:50 by ltheveni         ###   ########.fr       */
+/*   Updated: 2024/12/05 15:18:41 by ltheveni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,7 +118,8 @@ int	main(int argc, char **argv)
 			return (1);
 		if (!check_duplicate(tab_a, len_nbr))
 			return (1);
-		sort_tab(tab_a, len_nbr);
+		if (!is_sorted(tab_a, len_nbr))
+			sort_tab(tab_a, len_nbr);
 		free(tab_a);
 	}
 	return (0);
