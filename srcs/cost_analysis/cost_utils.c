@@ -6,11 +6,11 @@
 /*   By: ltheveni <ltheveni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 13:56:25 by ltheveni          #+#    #+#             */
-/*   Updated: 2024/12/05 09:08:38 by ltheveni         ###   ########.fr       */
+/*   Updated: 2024/12/05 11:01:28 by ltheveni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
 MoveCost	find_min_cost(MoveCost *costs, int size)
 {
