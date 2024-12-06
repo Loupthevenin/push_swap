@@ -6,33 +6,11 @@
 /*   By: ltheveni <ltheveni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 11:48:44 by ltheveni          #+#    #+#             */
-/*   Updated: 2024/12/05 21:20:46 by ltheveni         ###   ########.fr       */
+/*   Updated: 2024/12/06 23:14:09 by ltheveni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-
-void	print_tab(int *tab_a, int *tab_b, int size_tab_a, int size_tab_b)
-{
-	int	i;
-	int	size;
-
-	i = 0;
-	if (size_tab_a < size_tab_b)
-		size = size_tab_b;
-	else
-		size = size_tab_a;
-	while (size - 1 >= i)
-	{
-		ft_printf("%d\t", tab_a[i]);
-		if (i <= size_tab_b - 1)
-			ft_printf("%d", tab_b[i]);
-		ft_printf("\n");
-		i++;
-	}
-	ft_printf("-\t-\n");
-	ft_printf("a\tb\n");
-}
 
 void	sort_size_3a(int *tab_a)
 {
@@ -62,11 +40,11 @@ void	sort_size_3a(int *tab_a)
 
 void	turk_sort(int *tab_a, int *tab_b, int *size_a, int *size_b)
 {
-	Arrays	arg;
-	int		i;
+	t_arrays	arg;
+	int			i;
 
 	i = 0;
-	arg = (Arrays){tab_a, tab_b, size_a, size_b};
+	arg = (t_arrays){tab_a, tab_b, size_a, size_b};
 	while (*size_a != 3)
 	{
 		if (i < 2)
