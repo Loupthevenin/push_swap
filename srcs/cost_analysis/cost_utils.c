@@ -6,15 +6,15 @@
 /*   By: ltheveni <ltheveni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 13:56:25 by ltheveni          #+#    #+#             */
-/*   Updated: 2024/12/05 21:38:46 by ltheveni         ###   ########.fr       */
+/*   Updated: 2024/12/06 23:14:09 by ltheveni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-MoveCost	find_min_cost(MoveCost *costs, int size)
+t_movecost	find_min_cost(t_movecost *costs, int size)
 {
-	MoveCost	min_cost;
+	t_movecost	min_cost;
 	int			i;
 
 	min_cost = costs[0];
@@ -26,4 +26,16 @@ MoveCost	find_min_cost(MoveCost *costs, int size)
 		i++;
 	}
 	return (min_cost);
+}
+
+int	abs_diff(int a, int b)
+{
+	int	result;
+
+	result = 0;
+	if (a > b)
+		result = a - b;
+	else
+		result = b - a;
+	return (result);
 }

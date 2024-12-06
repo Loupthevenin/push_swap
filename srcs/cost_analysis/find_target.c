@@ -6,13 +6,14 @@
 /*   By: ltheveni <ltheveni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 11:05:22 by ltheveni          #+#    #+#             */
-/*   Updated: 2024/12/05 11:29:59 by ltheveni         ###   ########.fr       */
+/*   Updated: 2024/12/06 23:14:09 by ltheveni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-void	init_params(Arrays *tabs, int is_closest_smaller, int **tab, int *size)
+void	init_params(t_arrays *tabs, int is_closest_smaller, int **tab,
+		int *size)
 {
 	if (is_closest_smaller)
 	{
@@ -67,7 +68,7 @@ int	find_index(int *tab, int size, int value, int is_closest_smaller)
 	return (index_target);
 }
 
-int	find_target(Arrays *tabs, int value, int is_closest_smaller)
+int	find_target(t_arrays *tabs, int value, int is_closest_smaller)
 {
 	int	index_target;
 	int	*tab;
