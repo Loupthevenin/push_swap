@@ -6,13 +6,13 @@
 /*   By: ltheveni <ltheveni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 21:38:05 by ltheveni          #+#    #+#             */
-/*   Updated: 2024/12/05 21:40:17 by ltheveni         ###   ########.fr       */
+/*   Updated: 2024/12/06 23:21:08 by ltheveni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-int	is_rr_or_rrr(Arrays *tabs, int index_a, int index_b)
+int	is_rr_or_rrr(t_arrays *tabs, int index_a, int index_b)
 {
 	int	top;
 	int	bot;
@@ -66,7 +66,7 @@ void	perform_rotation(int *tab, int size, int index, int is_a)
 	}
 }
 
-void	move_rr(Arrays *tabs, int *index_a, int *index_b)
+void	move_rr(t_arrays *tabs, int *index_a, int *index_b)
 {
 	int	i;
 	int	current_index;
@@ -85,7 +85,7 @@ void	move_rr(Arrays *tabs, int *index_a, int *index_b)
 	*index_b -= i;
 }
 
-void	move_rrr(Arrays *tabs, int *index_a, int *index_b)
+void	move_rrr(t_arrays *tabs, int *index_a, int *index_b)
 {
 	int	i;
 	int	current_index;
@@ -112,7 +112,7 @@ void	move_rrr(Arrays *tabs, int *index_a, int *index_b)
 		*index_b = 0;
 }
 
-void	move_on_top(Arrays *tabs, int index_a, int index_b)
+void	move_on_top(t_arrays *tabs, int index_a, int index_b)
 {
 	int	is_rr_rrr;
 
