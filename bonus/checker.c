@@ -6,7 +6,7 @@
 /*   By: ltheveni <ltheveni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 09:50:26 by ltheveni          #+#    #+#             */
-/*   Updated: 2024/12/07 14:20:22 by ltheveni         ###   ########.fr       */
+/*   Updated: 2024/12/07 16:29:11 by ltheveni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,14 @@ int	is_nbr(char *s)
 	i = 0;
 	while (s[i])
 	{
-		while (s[i] && (s[i] == ' ' || s[i] == '\n' || s[i] == '\t'))
+		while (s[i] && (s[i] == ' ' || s[i] == '\t'))
 			i++;
+		if ((s[i] == '-' || s[i] == '+') && !ft_isdigit(s[i + 1]))
+			return (0);
 		n = ft_atoi_long(&s[i]);
 		if (n > 2147483647 || n < -2147483648)
 			return (0);
-		while (s[i] && s[i] != ' ' && s[i] != '\n' && s[i] != '\t')
+		while (s[i] && s[i] != ' ' && s[i] != '\t')
 		{
 			if (!ft_isdigit(s[i]) && s[i] != '-' && s[i] != '+' && s[i] != ' ')
 				return (0);
@@ -44,11 +46,11 @@ int	len_arg(char *s)
 	count = 0;
 	while (s[i])
 	{
-		while (s[i] && (s[i] == ' ' || s[i] == '\n' || s[i] == '\t'))
+		while (s[i] && (s[i] == ' ' || s[i] == '\t'))
 			i++;
 		if (s[i])
 			count++;
-		while (s[i] && s[i] != ' ' && s[i] != '\n' && s[i] != '\t')
+		while (s[i] && s[i] != ' ' && s[i] != '\t')
 			i++;
 	}
 	return (count);
@@ -89,13 +91,11 @@ int	*malloc_tab(int argc, char **argv, int size)
 		j = 0;
 		while (argv[i][j])
 		{
-			while (argv[i][j] && (argv[i][j] == ' ' || argv[i][j] == '\n'
-					|| argv[i][j] == '\t'))
+			while (argv[i][j] && (argv[i][j] == ' ' || argv[i][j] == '\t'))
 				j++;
 			if (argv[i][j])
 				result[k++] = ft_atoi(&argv[i][j]);
-			while (argv[i][j] && argv[i][j] != ' ' && argv[i][j] != '\n'
-				&& argv[i][j] != '\t')
+			while (argv[i][j] && argv[i][j] != ' ' && argv[i][j] != '\t')
 				j++;
 		}
 		i++;
@@ -105,25 +105,27 @@ int	*malloc_tab(int argc, char **argv, int size)
 
 int	main(int argc, char **argv)
 {
+	int	size;
 	int	len_nbr;
 	int	*tab_a;
 
 	if (argc > 1)
 	{
-		len_nbr = check_string(argc, argv);
-		if (len_nbr == -1)
+		size = check_string(argc, argv);
+		if (size == -1)
 			return (1);
+		len_nbr = size;
 		tab_a = malloc_tab(argc, argv, len_nbr);
-		if (!tab_a)
+		if (!tab_a || !check_duplicate(tab_a, len_nbr) || !rule_uses(tab_a,
+				&len_nbr))
+		{
+			free(tab_a);
 			return (1);
-		if (!check_duplicate(tab_a, len_nbr))
-			return (1);
-		if (!rule_uses(tab_a, len_nbr))
-			return (1);
-		if (!is_sorted(tab_a, len_nbr))
-			ft_printf("KO\n");
-		else
+		}
+		if (is_sorted(tab_a, len_nbr) && size == len_nbr)
 			ft_printf("OK\n");
+		else
+			ft_printf("KO\n");
 		free(tab_a);
 	}
 	return (0);

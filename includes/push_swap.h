@@ -6,7 +6,7 @@
 /*   By: ltheveni <ltheveni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 11:48:59 by ltheveni          #+#    #+#             */
-/*   Updated: 2024/12/07 14:09:36 by ltheveni         ###   ########.fr       */
+/*   Updated: 2024/12/07 15:07:34 by ltheveni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,6 +106,6 @@ int					rule_reverse_rotate_b_bonus(int *tab_b, int size_tab_b,
 int					rule_rrr_bonus(int *tab_a, int *tab_b, int size_tab_a,
 						int size_tab_b);
 
-int					rule_uses(int *tab_a, int size_a);
+int					rule_uses(int *tab_a, int *size_a);
 
 #endif

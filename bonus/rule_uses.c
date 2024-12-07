@@ -6,7 +6,7 @@
 /*   By: ltheveni <ltheveni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 10:56:15 by ltheveni          #+#    #+#             */
-/*   Updated: 2024/12/07 14:29:22 by ltheveni         ###   ########.fr       */
+/*   Updated: 2024/12/07 16:07:33 by ltheveni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,13 @@ int	loop_rules(int *tab_a, int *tab_b, int *size_a, int *size_b)
 	line = get_next_line(0);
 	while (line)
 	{
+		if (line[0] == '\n')
+		{
+			free(line);
+			return (0);
+		}
 		rule = check_line(line, ft_strlen(line) - 1);
+		free(line);
 		if (!rule)
 			return (0);
 		set_rules(rule, &arg);
@@ -84,16 +90,16 @@ int	loop_rules(int *tab_a, int *tab_b, int *size_a, int *size_b)
 	return (1);
 }
 
-int	rule_uses(int *tab_a, int size_a)
+int	rule_uses(int *tab_a, int *size_a)
 {
 	int	*tab_b;
 	int	size_b;
 
-	tab_b = (int *)malloc(sizeof(int) * size_a);
+	tab_b = (int *)malloc(sizeof(int) * *size_a);
 	if (!tab_b)
 		return (0);
 	size_b = 0;
-	if (!loop_rules(tab_a, tab_b, &size_a, &size_b))
+	if (!loop_rules(tab_a, tab_b, size_a, &size_b))
 	{
 		ft_printf("Error\n");
 		free(tab_b);
