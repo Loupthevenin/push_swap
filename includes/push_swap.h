@@ -6,7 +6,7 @@
 /*   By: ltheveni <ltheveni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 11:48:59 by ltheveni          #+#    #+#             */
-/*   Updated: 2024/12/06 23:14:09 by ltheveni         ###   ########.fr       */
+/*   Updated: 2024/12/07 14:09:36 by ltheveni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,5 +84,28 @@ void				cost_analysis(t_arrays *tabs, int is_closest_smaller);
 void				calculate_costs(t_node *current_list, t_arrays *tabs,
 						t_movecost *costs, int is_closest_smaller);
 void				sort_tab(int *tab_a, int size);
+
+int					rule_swap_a_bonus(int *tab_a, int size_tab_a, int is_print);
+int					rule_swap_b_bonus(int *tab_b, int size_tab_b, int is_print);
+int					rule_ss_bonus(int *tab_a, int *tab_b, int size_tab_a,
+						int size_tab_b);
+int					rule_push_a_bonus(int *move_b, int *push_a,
+						int *size_move_b, int *size_push_a);
+int					rule_push_b_bonus(int *move_a, int *push_b,
+						int *size_move_a, int *size_push_b);
+int					rule_rotate_a_bonus(int *tab_a, int size_tab_a,
+						int is_print);
+int					rule_rotate_b_bonus(int *tab_b, int size_tab_b,
+						int is_print);
+int					rule_rr_bonus(int *tab_a, int *tab_b, int size_tab_a,
+						int size_tab_b);
+int					rule_reverse_rotate_a_bonus(int *tab_a, int size_tab_a,
+						int is_print);
+int					rule_reverse_rotate_b_bonus(int *tab_b, int size_tab_b,
+						int is_print);
+int					rule_rrr_bonus(int *tab_a, int *tab_b, int size_tab_a,
+						int size_tab_b);
+
+int					rule_uses(int *tab_a, int size_a);
 
 #endif

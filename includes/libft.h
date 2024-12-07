@@ -6,12 +6,16 @@
 /*   By: ltheveni <ltheveni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 16:12:37 by ltheveni          #+#    #+#             */
-/*   Updated: 2024/11/12 11:19:55 by ltheveni         ###   ########.fr       */
+/*   Updated: 2024/12/07 09:41:14 by ltheveni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 42
+# endif
 
 # include <ctype.h>
 # include <stdlib.h>
@@ -53,6 +57,7 @@ void				ft_putchar_fd(char c, int fd);
 void				ft_putstr_fd(char *s, int fd);
 void				ft_putendl_fd(char *s, int fd);
 void				ft_putnbr_fd(int n, int fd);
+char				*get_next_line(int fd);
 
 typedef struct s_list
 {
