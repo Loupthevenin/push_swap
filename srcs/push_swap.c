@@ -6,7 +6,7 @@
 /*   By: ltheveni <ltheveni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 11:48:18 by ltheveni          #+#    #+#             */
-/*   Updated: 2024/12/05 15:18:41 by ltheveni         ###   ########.fr       */
+/*   Updated: 2024/12/07 15:32:23 by ltheveni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ int	is_nbr(char *s)
 	{
 		while (s[i] && (s[i] == ' ' || s[i] == '\n' || s[i] == '\t'))
 			i++;
+		if ((s[i] == '-' || s[i] == '+') && !ft_isdigit(s[i + 1]))
+			return (0);
 		n = ft_atoi_long(&s[i]);
 		if (n > 2147483647 || n < -2147483648)
 			return (0);

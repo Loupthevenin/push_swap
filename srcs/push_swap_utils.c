@@ -6,12 +6,11 @@
 /*   By: ltheveni <ltheveni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 19:59:23 by ltheveni          #+#    #+#             */
-/*   Updated: 2024/12/05 15:27:53 by ltheveni         ###   ########.fr       */
+/*   Updated: 2024/12/07 15:27:32 by ltheveni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-#include <stdio.h>
 
 int	check_duplicate(int *tab, int size)
 {
