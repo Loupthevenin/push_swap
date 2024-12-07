@@ -6,7 +6,7 @@
 /*   By: ltheveni <ltheveni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 18:49:16 by ltheveni          #+#    #+#             */
-/*   Updated: 2024/12/03 13:44:40 by ltheveni         ###   ########.fr       */
+/*   Updated: 2024/12/07 14:07:37 by ltheveni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,5 +49,6 @@ int	rule_ss(int *tab_a, int *tab_b, int size_tab_a, int size_tab_b)
 	count += rule_swap_b(tab_b, size_tab_b, 0);
 	if (count != 2)
 		return (0);
+	ft_printf("ss\n");
 	return (1);
 }

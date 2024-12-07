@@ -6,7 +6,7 @@
 #    By: ltheveni <ltheveni@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/12 18:30:28 by ltheveni          #+#    #+#              #
-#    Updated: 2024/11/29 10:23:45 by ltheveni         ###   ########.fr        #
+#    Updated: 2024/12/07 09:42:16 by ltheveni         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,7 +44,8 @@ SRCS = ft_isalpha.c\
 	   ft_putchar_fd.c\
 	   ft_putstr_fd.c\
 	   ft_putendl_fd.c\
-	   ft_putnbr_fd.c
+	   ft_putnbr_fd.c\
+	   get_next_line.c
 SRCS_BONUS = ft_lstnew_bonus.c\
 			 ft_lstadd_front_bonus.c\
 			 ft_lstsize_bonus.c\
