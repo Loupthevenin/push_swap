@@ -6,7 +6,7 @@
 /*   By: ltheveni <ltheveni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 19:59:23 by ltheveni          #+#    #+#             */
-/*   Updated: 2024/12/07 15:27:32 by ltheveni         ###   ########.fr       */
+/*   Updated: 2024/12/09 19:30:05 by ltheveni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,9 +66,9 @@ int	is_sorted(int *tab, int size)
 	int	i;
 
 	i = 0;
-	while (i < size)
+	while (i < size - 1)
 	{
-		if (tab[i] > tab[i + 1] && i + 1 < size)
+		if (tab[i] > tab[i + 1])
 			return (0);
 		i++;
 	}

@@ -6,7 +6,7 @@
 #    By: ltheveni <ltheveni@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/29 10:04:27 by ltheveni          #+#    #+#              #
-#    Updated: 2024/12/07 10:15:27 by ltheveni         ###   ########.fr        #
+#    Updated: 2024/12/09 19:24:31 by ltheveni         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,6 +37,7 @@ INCLUDE = -I includes
 CFLAGS = -Wall -Werror -Wextra
 LIBFLAGS = -L $(LIB_DIR) -lft
 RM = rm -rf
+DEBUG_FLAGS = -g3
 
 # C program
 SRCS = $(shell find $(SRC_DIR) -name '*.c')
@@ -87,4 +88,12 @@ fclean:
 
 re: fclean all
 
-.PHONY: all bonus clean fclean re libft
+debug: CFLAGS += -fsanitize=address $(DEBUG_FLAGS)
+debug: re
+	@printf "$(_BLUE)Debug build done$(_END)\n"
+
+leak: CFLAGS += $(DEBUG_FLAGS)
+leak: re
+	@printf "$(_BLUE)Leak check build done$(_END)\n"
+
+.PHONY: all bonus clean fclean re libft debug leak
